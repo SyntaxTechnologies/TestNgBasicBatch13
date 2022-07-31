@@ -1,0 +1,161 @@
+TestNG
+
+1.what is an XML?
+ Xml is a file format just like text, json, HTML e.tc
+
+ <project>
+     <message>"heelo world"</message>
+ </project>
+
+
+ an example for json :
+
+ {
+    "project":"project1",
+    "message":"hello world"
+
+ }
+
+ a text file:
+
+ the project is project1 and the message is hello world;
+
+
+
+
+
+POM.xml:
+
+<project>
+<version> </version>
+
+   <dependencies>
+
+
+   </dependencies>
+
+
+</project>
+
+
+1.Maven project:
+simply click on new project
+select maven from options
+and create a new project with a name
+
+maven porject saves you from hustle of adding dependencies like u do in java project (adding jasrs manually)
+in maven you can mention the dependency that u need from maven repo
+add it in the POM.xml
+reload the project
+and it is there for you to use.
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+    </dependencies>
+
+
+--------------------------------------------
+testNG:
+Test is a tool,
+it can be used to unit test, integration test e.t.c
+no mian needed if u are working with testNG
+
+
+Annotations:
+
+1.@Test:
+All the test cases must be written down under the annotation of @Test.
+
+
+whenever u run a class , it is going to execute each and every method under the annotation of
+@Test.
+
+by deafult @Test annotation follows alphabetical order of execution of the test cases
+
+e.g public void atestcase(); --> will execute first
+    public void btestcase();-->will execute second
+
+    the geeen tick indicates that test case has passed
+    the red sign idnicates the test case has failed
+
+
+
+@BeforeMethod annotation:
+
+the code under this annotation is going to execute everytime before each and every @Test execution is made
+
+
+
+@AfterMethod annotation :
+
+the code under this annotation is going to execute after every test Method (after every @TEST)
+
+
+
+------------------------------review--------------------------
+
+1.What is a maven project and how does it differ from a java project?
+
+-->Maven project we donot need any jars!!!
+instead of that
+-->we hvae a pom.xml in which we paste the dependencies that are needed.
+
+2.how do we get those dependencies?
+--> we hvae a maven repo and we get all the dependices from there
+
+3.whats a maven repo?
+-->it is an online storage which has all the dependecies that can be used with a maven project.
+
+4.What kind of dependencies you need for working with a testng and selenium project in maven?
+-->Selenium
+-->testNG
+-->WebdriverManager
+-->jcommander
+
+5.how do u place your dependenices in POM.xml?
+ <dependencies>
+     <dependency>
+     		<groupid>org.selenium2.selenium</groupid>
+     		<artifact-id>selenium-java</artifact-id>
+     		<version>4</version>
+     </dependency>
+ </dependencies>
+
+
+
+6.we have different annotations?
+1.@Test
+everytest case is going to come under this annotation
+
+2.@beforeMethod
+it executes before each test annotation
+
+3.@aftermethod
+it executes after each test annotation
+
+
+to write our
+pre-condtions
+and
+post-conditons
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
