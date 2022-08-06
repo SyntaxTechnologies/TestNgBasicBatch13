@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Class Based Execution">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/moazzam/Desktop/syntax/testngb13/TestNgBasicBatch13/src/test/java/class02/enableDisable.java">
+            
+        <classes>
+            <class name="class02.enableDisable"></class>
+            <class name="class01.testNGannotations"></class>
+            <class name="class02.priority"></class>
+        </classes>
+
+    </test>
+</suite>

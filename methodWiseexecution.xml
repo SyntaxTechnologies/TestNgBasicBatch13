@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Method Wise Execution">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/moazzam/Desktop/syntax/testngb13/TestNgBasicBatch13/src/test/java/class02/priority.java">
+        <classes>
+            <class name="class02.priority">
+                <methods>
+                    <include name="ThirdTest"></include>
+                    <include name="FourthTest"></include>
+                    <include name="FirstTest"></include>
+                    <include name="SecondTest"></include>
+                </methods>
+            </class>
+            <class name="class02.enableDisable">
+                <methods>
+                    <include name="ThirdTest"></include>
+                    <exclude name="SecondTest"></exclude>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+

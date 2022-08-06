@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/moazzam/Desktop/syntax/testngb13/TestNgBasicBatch13/src/test/java/class02/hardAssertions.java">
+       <groups>
+           <run>
+               <include name="regression"></include>
+           </run>
+       </groups>
+        <classes>
+            <class name="class02.softAssertion"></class>
+        </classes>
+    </test>
+</suite>
