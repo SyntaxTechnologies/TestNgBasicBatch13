@@ -48,7 +48,7 @@ WebDriver driver;
         String errorText = errorMsg.getText();
 
 //        expected text
-        String expectedText="Invalid credentials";
+        String expectedText="Invalid credential";
         SoftAssert soft =new SoftAssert();
 //        make sure error text is equal to expected text
         soft.assertEquals(errorText,expectedText);

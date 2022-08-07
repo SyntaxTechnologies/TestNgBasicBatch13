@@ -1,36 +1,39 @@
-package class02;
+package class03;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
-public class hardAssertions {
+public class parallelTesting {
 
+    //
 //    navigate to syntaxhrms
-//    we need to write to case to verify the wrong credentials give error message that is "Invalid credentials"
+//    1.we need to write test case to verify the wrong credentials
+//    and give error message that is "Invalid credentials"
+//    2. assert that username text box is displayed
 //    quit the browser
-        WebDriver driver;
-//    navigate to syntax HRMS website
+    WebDriver driver;
+    //    navigate to syntax HRMS website
     @BeforeMethod(alwaysRun = true)
     public void openBrowser(){
         WebDriverManager.chromedriver().setup();;
-         driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
 
     }
-    @Test(groups = "smoke")
-    public  void verifyInvalidCredentialsError(){
-//finding the username text box
+    @Test(groups = "regression")
+    public  void invalidCredentials() throws InterruptedException {
+        //finding the username text box
         WebElement username = driver.findElement(By.xpath("//input[@id='txtUsername']"));
-//send username
+        //send username
         username.sendKeys("WeatherMay");
-//        finding the password field
+        //        finding the password field
         WebElement pswrd = driver.findElement(By.xpath("//input[@id='txtPassword']"));
 //        send password
         pswrd.sendKeys("abcdefgh");
@@ -43,22 +46,23 @@ public class hardAssertions {
         WebElement errorMsg = driver.findElement(By.xpath("//span[@id='spanMessage']"));
 //        extract the error message
         String errorText = errorMsg.getText();
-//
-        System.out.println(errorText);
-//        /declaring the message that we are expecting
-        String expectedMsg="Invalid credential";
 
-//        making assertion to make sure that message is correct
-        Assert.assertEquals(errorText,expectedMsg);
+//        expected text
+        String expectedText="Invalid credentials";
+        SoftAssert soft =new SoftAssert();
+//        make sure error text is equal to expected text
+        soft.assertEquals(errorText,expectedText);
 
-
-//        re-assigning the username because the page is refreshed and we get a stale element exception
-      username = driver.findElement(By.xpath("//input[@id='txtUsername']"));
-//        the text box Username is diplayed
+//        get he webelement username from the website
+        username = driver.findElement(By.xpath("//input[@id='txtUsername']"));
+//        is it displayed?
         boolean displayed = username.isDisplayed();
 
-//       Check if the displayed is true or not
-       Assert.assertTrue(displayed);
+//        make sure the text box is dislplayed
+        soft.assertTrue(displayed);
+// sleep for observing the console
+        Thread.sleep(5000);
+        soft.assertAll();
 
     }
 
